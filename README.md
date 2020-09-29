@@ -16,16 +16,21 @@ Il token risultante sarà disponibile nella variabile xxx_token_xxx
 Entrate nella cartella "Login Widget"[https://github.com/cebacci/Autentica/tree/main/Login%20Widget] per scaricare l’esempio completo
 
 "unitAutentica.pas"
-Se siete programmatori Delphi o Lazarus, potete scaricare qui una unit da includere nel vostro progetto ed accedere a tutte le funzionalità di login, cambio password e password dimenticata. Per poterla utilizzare è necessario includerla nel vostro progetto o form con la seguente istruzione:
+
+Se siete programmatori Delphi o Lazarus, potete scaricare qui [https://github.com/cebacci/Autentica/blob/main/Delphi/UnitAutentica.pas] una unit da includere nel vostro progetto ed accedere a tutte le funzionalità di login, cambio password e password dimenticata. Per poterla utilizzare è necessario includerla nel vostro progetto o form con la seguente istruzione:
+
 uses UnitAutentica;
+
 Dopodiché è sufficiente chiamare una singola funzione passando la propria apiKey e gli altri parametri richiesti:
-  if not UnitAutentica.Autenticazione(‘565D4ADF-3975-454C-9F63-1755C2C49BAF’,'123456',’Titolo’,IdUser,Token,MsgErrore,CodErrore) then begin
-    MessageDlg('Autenticazione non riuscita a causa del seguente errore:"'#13#10#13#10 +
-                 MsgErrore+#13#10#13#10+
-                 'Cod. Errore: '+CodErrore.ToString,
-               mtError,[mbOk],0);
-    Exit;
-  end;
+
+if not UnitAutentica.Autenticazione(‘565D4ADF-3975-454C-9F63-1755C2C49BAF’,'123456',’Titolo’,IdUser,Token,MsgErrore,CodErrore) then begin
+  MessageDlg('Autenticazione non riuscita a causa del seguente errore:"'#13#10#13#10 +
+               MsgErrore+#13#10#13#10+
+               'Cod. Errore: '+CodErrore.ToString,
+             mtError,[mbOk],0);
+  Exit;
+end;
 
 Il token risultante sarà disponibile nella variabile Token. Per vostra comodità la funzione estrae anche il valore di IdUser dal token e lo inserisce nella variabile corrispondente.
+
 Entrate nella cartella "Delphi" per scaricare l’esempio completo
