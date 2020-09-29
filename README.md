@@ -36,8 +36,8 @@ function load() {
 }
 ...
 function error(e) {
-  console.log(e.status);
-  console.log(e.description);
+  console.log(e.detail.status);
+  console.log(e.detail.description);
 }
 ...
 ```
