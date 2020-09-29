@@ -19,7 +19,7 @@ Entrate nella cartella <a href="https://github.com/cebacci/Autentica/tree/main/L
 
 Se siete programmatori Delphi o Lazarus, potete scaricare <a href="https://github.com/cebacci/Autentica/blob/main/Delphi/UnitAutentica.pas">qui</a> una unit da includere nel vostro progetto ed accedere a tutte le funzionalità di login, cambio password e password dimenticata. Per poterla utilizzare è necessario includerla nel vostro progetto o form con la seguente istruzione:
 
-uses UnitAutentica;
+```uses UnitAutentica;```
 
 Dopodiché è sufficiente chiamare una singola funzione passando la propria apiKey e gli altri parametri richiesti:
 ```
