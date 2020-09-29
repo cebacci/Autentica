@@ -10,11 +10,39 @@ Permette di includere in una pagina html tutte le funzionalità di login, cambio
 Dopodiché è sufficiente includere il custom-tag "autentica-login", avendo cura di passare la propria apiKey e gli altri eventuali parametri:
 
 ```<autentica-login apikey="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"></autentica-login>```
-                            
 
-Il token risultante sarà disponibile nella variabile xxx_token_xxx
+Per ricevere la risposta della chiamata di autenticazione è necessario aggiungere un evento di tipo "onLoginSuccess" al custom-tag:
 
-Entrate nella cartella <a href="https://github.com/cebacci/Autentica/tree/main/Login%20Widget">Login Widget</a> per scaricare l’esempio completo
+```
+function load() {
+  [...]
+  document.querySelector('autentica-login').addEventListener('onLoginSuccess',loginSuccess,false);
+  [...]
+}
+[...]
+function loginSuccess(e) {
+  console.log(e.detail.token);
+}
+[...]
+```
+
+Per ricevere eventuali errori della chiamata di autenticazione è necessario aggiungere un evento di tipo "onError" al custom-tag:
+
+```
+function load() {
+  [...]
+  document.querySelector('autentica-login').addEventListener('onError',error,false);
+  [...]
+}
+[...]
+function error(e) {
+  console.log(e.status);
+  console.log(e.description);
+}
+[...]
+```
+
+Trovate l’esempio completo in <a href="https://github.com/cebacci/Autentica/tree/main/Login%20Widget">Login Widget</a>
 
 ## Login Form (Delphi)
 
@@ -34,4 +62,4 @@ end;
 ```
 Il token risultante sarà disponibile nella variabile Token. Per vostra comodità la funzione estrae anche il valore di IdUser dal token e lo inserisce nella variabile corrispondente.
 
-Entrate nella cartella <a href="https://github.com/cebacci/Autentica/tree/main/Delphi">Delphi</a> per scaricare l’esempio completo
+Trovate l’esempio completo in <a href="https://github.com/cebacci/Autentica/tree/main/Delphi">Delphi</a>
