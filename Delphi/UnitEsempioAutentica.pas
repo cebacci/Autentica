@@ -31,7 +31,7 @@ var
   IdUser,lToken,MsgErrore: String;
   CodErrore: Integer;
 begin
-  MyApiKey:='565D4ADF-3975-454C-9F63-1755C2C49BAF';
+  MyApiKey:='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
   MyNonce:='ABC123';
   if not UnitAutentica.Autenticazione(MyApiKey,MyNonce,Caption,IdUser,lToken,MsgErrore,CodErrore) then begin
     MessageBox(Handle,
