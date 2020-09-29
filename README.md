@@ -33,4 +33,4 @@ end;
 
 Il token risultante sarà disponibile nella variabile Token. Per vostra comodità la funzione estrae anche il valore di IdUser dal token e lo inserisce nella variabile corrispondente.
 
-Entrate nella cartella "Delphi" per scaricare l’esempio completo
+Entrate nella cartella "Delphi" [https://github.com/cebacci/Autentica/tree/main/Delphi] per scaricare l’esempio completo
