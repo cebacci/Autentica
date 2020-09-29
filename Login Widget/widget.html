@@ -8,7 +8,7 @@ function loginSuccess(e) {
   console.log(e.detail.token);
 }
 function error(e) {
-  console.log(e.detail.status + ' - ' + e.detail.description);
+  console.log(e.detail.error + ' - ' + e.detail.description);
 }
 function load() {
   document.querySelector('autentica-login').addEventListener('onLoginSuccess',loginSuccess,false);
