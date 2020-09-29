@@ -17,36 +17,9 @@ Dopodiché è sufficiente includere il custom-tag "autentica-login", avendo cura
 | logoSrc | link al logo dell'applicazione (non indicare questo parametro per visualizzare il logo standard di Autentica) | No |
 | nonce | stringa generata randomicamente | No |
 
-Per ricevere la risposta della chiamata di autenticazione è necessario aggiungere un evento di tipo "onLoginSuccess" al custom-tag:
+Per ricevere la risposta della chiamata di autenticazione è necessario aggiungere un evento di tipo "onLoginSuccess" al custom-tag; il token è contenuto nel parametro event.detail.token.
 
-```
-function load() {
-  ...
-  document.querySelector('autentica-login').addEventListener('onLoginSuccess',loginSuccess,false);
-  ...
-}
-...
-function loginSuccess(e) {
-  console.log(e.detail.token);
-}
-...
-```
-
-Per ricevere eventuali errori della chiamata di autenticazione è necessario aggiungere un evento di tipo "onError" al custom-tag:
-
-```
-function load() {
-  ...
-  document.querySelector('autentica-login').addEventListener('onError',error,false);
-  ...
-}
-...
-function error(e) {
-  console.log(e.detail.error);
-  console.log(e.detail.description);
-}
-...
-```
+Per ricevere eventuali errori della chiamata di autenticazione è necessario aggiungere un evento di tipo "onError" al custom-tag; il codice di errore e la descrizione sono contenuti rispettivamente in event.detail.error ed event.detail.description.
 
 Trovate l’esempio completo in <a href="https://github.com/cebacci/Autentica/tree/main/Login%20Widget">Login Widget</a>
 
@@ -66,6 +39,6 @@ if not UnitAutentica.Autenticazione('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx','1234
     Exit;
 end;
 ```
-Il token risultante sarà disponibile nella variabile Token. Per vostra comodità la funzione estrae anche il valore di IdUser dal token e lo inserisce nella variabile corrispondente. ATTENZIONE! Si consiglia di effettuare sempre una validazione del token ricevuto con la propria chiave pubblica prima di utilizzarne il contenuto.
+Il token risultante sarà disponibile nella variabile Token. Per vostra comodità la funzione estrae anche il valore di IdUser dal token e lo inserisce nella variabile corrispondente.
 
 Trovate l’esempio completo in <a href="https://github.com/cebacci/Autentica/tree/main/Delphi">Delphi</a>
