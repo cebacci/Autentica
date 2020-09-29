@@ -3,7 +3,7 @@
 Al fine di facilitare la comprensione e l’utilizzo delle chiamate ad Autentica, abbiamo sviluppato due componenti pronti all’uso, che permettono al programmatore di inglobare nel proprio applicativo le chiamate ad Autentica in modo semplice e sintetico. I sorgenti dei due componenti sono a vostra disposizione e possono essere analizzati e riutilizzati liberamente (licenza LGPL GNU) oppure possono essere consultati come esempio delle chiamate ad Autentica.
 
 <H4>Login Widget</H4>
-Permette di includere in una pagina html tutte le funzionalità di login, cambio password e password dimenticata all’interno di un contenitore. Per poterlo utilizzare, è necessario includere nella pagina html lo script necessario con la seguente istruzione:
+<p>Permette di includere in una pagina html tutte le funzionalità di login, cambio password e password dimenticata all’interno di un contenitore. Per poterlo utilizzare, è necessario includere nella pagina html lo script necessario con la seguente istruzione:</p>
 
 &lt;script src="http://ws-a.geninfo.it/rest/api/loginWidget" &gt;&lt;/script&gt;
 
