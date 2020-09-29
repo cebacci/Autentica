@@ -12,9 +12,10 @@ Dopodiché è sufficiente inserire in un <div> la chiamata alla funzione vera e 
 </div>
 
 Il token risultante sarà disponibile nella variabile xxx_token_xxx
+
 Entrate nella cartella "Login Widget"[https://github.com/cebacci/Autentica/tree/main/Login%20Widget] per scaricare l’esempio completo
 
-unitAutentica.pas
+"unitAutentica.pas"
 Se siete programmatori Delphi o Lazarus, potete scaricare qui una unit da includere nel vostro progetto ed accedere a tutte le funzionalità di login, cambio password e password dimenticata. Per poterla utilizzare è necessario includerla nel vostro progetto o form con la seguente istruzione:
 uses UnitAutentica;
 Dopodiché è sufficiente chiamare una singola funzione passando la propria apiKey e gli altri parametri richiesti:
