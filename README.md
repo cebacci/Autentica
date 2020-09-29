@@ -2,7 +2,7 @@
 
 Al fine di facilitare la comprensione e l’utilizzo delle chiamate ad Autentica, abbiamo sviluppato due componenti pronti all’uso, che permettono al programmatore di inglobare nel proprio applicativo le chiamate ad Autentica in modo semplice e sintetico. I sorgenti dei due componenti sono a vostra disposizione e possono essere analizzati e riutilizzati liberamente (licenza LGPL GNU) oppure possono essere consultati come esempio delle chiamate ad Autentica.
 
-## Login Widget
+## Login Widget (HTML / javascript)
 Permette di includere in una pagina html tutte le funzionalità di login, cambio password e password dimenticata all’interno di un contenitore. Per poterlo utilizzare, è necessario includere nella pagina html lo script necessario con la seguente istruzione:
 
 ```<script src="http://ws-a.geninfo.it/rest/api/loginWidget"></script>```
@@ -15,7 +15,7 @@ Il token risultante sarà disponibile nella variabile xxx_token_xxx
 
 Entrate nella cartella <a href="https://github.com/cebacci/Autentica/tree/main/Login%20Widget">Login Widget</a> per scaricare l’esempio completo
 
-## Delphi
+## Login Widget (Delphi)
 
 Se siete programmatori Delphi o Lazarus, potete scaricare <a href="https://github.com/cebacci/Autentica/blob/main/Delphi/UnitAutentica.pas">qui</a> una unit da includere nel vostro progetto ed accedere a tutte le funzionalità di login, cambio password e password dimenticata. Per poterla utilizzare è necessario includerla nel vostro progetto o form con la seguente istruzione:
 
