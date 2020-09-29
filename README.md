@@ -7,7 +7,7 @@ Permette di includere in una pagina html tutte le funzionalità di login, cambio
 <p><script src="https://ws-a.geninfo.it/rest/api/loginWidget"></script></p>
 Dopodiché è sufficiente includere il custom-tag "autentica-login", avendo cura di passare la propria apiKey e gli altri eventuali parametri:
 
-<p><autentica-login apikey="565D4ADF-3975-454C-9F63-1755C2C49BAF"></autentica-login></p>
+<p>\<autentica-login apikey="565D4ADF-3975-454C-9F63-1755C2C49BAF"></autentica-login>\</p>
 
 Il token risultante sarà disponibile nella variabile xxx_token_xxx
 
