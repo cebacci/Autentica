@@ -11,6 +11,12 @@ Dopodiché è sufficiente includere il custom-tag "autentica-login", avendo cura
 
 ```<autentica-login apikey="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"></autentica-login>```
 
+| Parametro | Descrizione | Obbligatorio |
+| --- | --- | --- |
+| apiKey | Chiave relativa all'applicazione | Si |
+| logoSrc | link al logo dell'applicazione (non indicare questo parametro per visualizzare il logo standard di Autentica) | No |
+| nonce | stringa generata randomicamente | No |
+
 Per ricevere la risposta della chiamata di autenticazione è necessario aggiungere un evento di tipo "onLoginSuccess" al custom-tag:
 
 ```
