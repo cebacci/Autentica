@@ -23,7 +23,7 @@ uses UnitAutentica;
 
 Dopodiché è sufficiente chiamare una singola funzione passando la propria apiKey e gli altri parametri richiesti:
 ```
-if not UnitAutentica.Autenticazione(‘565D4ADF-3975-454C-9F63-1755C2C49BAF’,'123456',’Titolo’,IdUser,Token,MsgErrore,CodErrore) then begin
+if not UnitAutentica.Autenticazione('565D4ADF-3975-454C-9F63-1755C2C49BAF','123456','Titolo',IdUser,Token,MsgErrore,CodErrore) then begin
     MessageDlg('Autenticazione non riuscita a causa del seguente errore:"'#13#10#13#10 +
                 MsgErrore+#13#10#13#10+
                 'Cod. Errore: '+CodErrore.ToString,
