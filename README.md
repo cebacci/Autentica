@@ -15,31 +15,31 @@ Per ricevere la risposta della chiamata di autenticazione è necessario aggiunge
 
 ```
 function load() {
-  [...]
+  ...
   document.querySelector('autentica-login').addEventListener('onLoginSuccess',loginSuccess,false);
-  [...]
+  ...
 }
-[...]
+...
 function loginSuccess(e) {
   console.log(e.detail.token);
 }
-[...]
+...
 ```
 
 Per ricevere eventuali errori della chiamata di autenticazione è necessario aggiungere un evento di tipo "onError" al custom-tag:
 
 ```
 function load() {
-  [...]
+  ...
   document.querySelector('autentica-login').addEventListener('onError',error,false);
-  [...]
+  ...
 }
-[...]
+...
 function error(e) {
   console.log(e.status);
   console.log(e.description);
 }
-[...]
+...
 ```
 
 Trovate l’esempio completo in <a href="https://github.com/cebacci/Autentica/tree/main/Login%20Widget">Login Widget</a>
