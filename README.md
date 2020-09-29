@@ -13,7 +13,7 @@ Dopodiché è sufficiente includere il custom-tag "autentica-login", avendo cura
 
 Il token risultante sarà disponibile nella variabile xxx_token_xxx
 
-Entrate nella cartella <a href="https://github.com/cebacci/Autentica/tree/main/Login%20Widget">"Login Widget"</a> per scaricare l’esempio completo
+Entrate nella cartella <a href="https://github.com/cebacci/Autentica/tree/main/Login%20Widget">Login Widget</a> per scaricare l’esempio completo
 
 "unitAutentica.pas"
 
@@ -33,4 +33,4 @@ end;
 ```
 Il token risultante sarà disponibile nella variabile Token. Per vostra comodità la funzione estrae anche il valore di IdUser dal token e lo inserisce nella variabile corrispondente.
 
-Entrate nella cartella <a href="https://github.com/cebacci/Autentica/tree/main/Delphi">"Delphi"</a> per scaricare l’esempio completo
+Entrate nella cartella <a href="https://github.com/cebacci/Autentica/tree/main/Delphi">Delphi</a> per scaricare l’esempio completo
