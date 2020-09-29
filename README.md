@@ -42,7 +42,7 @@ function load() {
 }
 ...
 function error(e) {
-  console.log(e.detail.status);
+  console.log(e.detail.error);
   console.log(e.detail.description);
 }
 ...
