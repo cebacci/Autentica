@@ -4,10 +4,12 @@ Al fine di facilitare la comprensione e l’utilizzo delle chiamate ad Autentica
 
 <H4>Login Widget</H4>
 Permette di includere in una pagina html tutte le funzionalità di login, cambio password e password dimenticata all’interno di un contenitore. Per poterlo utilizzare, è necessario includere nella pagina html lo script necessario con la seguente istruzione:
-<p>&lt;script src=&#8220;https://ws-a.geninfo.it/rest/api/loginWidget&#8221;&gt;&lt;/script&gt;</p>
+
+&lt;script src=&#8220;https://ws-a.geninfo.it/rest/api/loginWidget&#8221;&gt;&lt;/script&gt;
+
 Dopodiché è sufficiente includere il custom-tag "autentica-login", avendo cura di passare la propria apiKey e gli altri eventuali parametri:
 
-<p>&lt;autentica-login apikey="565D4ADF-3975-454C-9F63-1755C2C49BAF"&gt;&lt;/autentica-login&gt;&lt;/p&gt;
+&lt;autentica-login apikey="565D4ADF-3975-454C-9F63-1755C2C49BAF"&gt; &lt;/autentica-login&gt;
 
 Il token risultante sarà disponibile nella variabile xxx_token_xxx
 
