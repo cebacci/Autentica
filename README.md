@@ -9,7 +9,8 @@ Permette di includere in una pagina html tutte le funzionalità di login, cambio
 
 Dopodiché è sufficiente includere il custom-tag "autentica-login", avendo cura di passare la propria apiKey e gli altri eventuali parametri:
 
-```<autentica-login apikey="565D4ADF-3975-454C-9F63-1755C2C49BAF"></autentica-login>```
+```<autentica-login apikey="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"></autentica-login>```
+                            
 
 Il token risultante sarà disponibile nella variabile xxx_token_xxx
 
@@ -23,7 +24,7 @@ Se siete programmatori Delphi o Lazarus, potete scaricare <a href="https://githu
 
 Dopodiché è sufficiente chiamare una singola funzione passando la propria apiKey e gli altri parametri richiesti:
 ```
-if not UnitAutentica.Autenticazione('565D4ADF-3975-454C-9F63-1755C2C49BAF','123456','Titolo',IdUser,Token,MsgErrore,CodErrore) then begin
+if not UnitAutentica.Autenticazione('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx','123456','Titolo',IdUser,Token,MsgErrore,CodErrore) then begin
     MessageDlg('Autenticazione non riuscita a causa del seguente errore:"'#13#10#13#10 +
                 MsgErrore+#13#10#13#10+
                 'Cod. Errore: '+CodErrore.ToString,
