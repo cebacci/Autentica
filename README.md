@@ -1,6 +1,6 @@
 # Autentica
 
-Al fine di facilitare la comprensione e l’utilizzo delle chiamate ad Autentica, abbiamo sviluppato due componenti pronti all’uso, che permettono al programmatore di inglobare nel proprio applicativo le chiamate ad Autentica in modo semplice e sintetico. I sorgenti dei due componenti sono a vostra disposizione e possono essere analizzati e riutilizzati liberamente (licenza LGPL GNU?) oppure possono essere consultati come esempio delle chiamate ad Autentica.
+Al fine di facilitare la comprensione e l’utilizzo delle chiamate ad Autentica, abbiamo sviluppato due componenti pronti all’uso, che permettono al programmatore di inglobare nel proprio applicativo le chiamate ad Autentica in modo semplice e sintetico. I sorgenti dei due componenti sono a vostra disposizione e possono essere analizzati e riutilizzati liberamente (licenza LGPL GNU) oppure possono essere consultati come esempio delle chiamate ad Autentica.
 
 Login Widget
 Permette di includere in una pagina html tutte le funzionalità di login, cambio password e password dimenticata all’interno di un <div>. Per poterlo utilizzare, è necessario includere nella pagina html lo script necessario con la seguente istruzione:
@@ -12,7 +12,7 @@ Dopodiché è sufficiente inserire in un <div> la chiamata alla funzione vera e 
 </div>
 
 Il token risultante sarà disponibile nella variabile xxx_token_xxx
-Clicca qui per scaricare l’esempio completo
+Entrate nella cartella "Login Widget"[https://github.com/cebacci/Autentica/tree/main/Login%20Widget] per scaricare l’esempio completo
 
 unitAutentica.pas
 Se siete programmatori Delphi o Lazarus, potete scaricare qui una unit da includere nel vostro progetto ed accedere a tutte le funzionalità di login, cambio password e password dimenticata. Per poterla utilizzare è necessario includerla nel vostro progetto o form con la seguente istruzione:
@@ -27,4 +27,4 @@ Dopodiché è sufficiente chiamare una singola funzione passando la propria apiK
   end;
 
 Il token risultante sarà disponibile nella variabile Token. Per vostra comodità la funzione estrae anche il valore di IdUser dal token e lo inserisce nella variabile corrispondente.
-Clicca qui per scaricare l’esempio completo
+Entrate nella cartella "Delphi" per scaricare l’esempio completo
