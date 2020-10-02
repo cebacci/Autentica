@@ -22,7 +22,7 @@ function CreaUtente(const ApiKey,Title,IdUser: String;
                     var MsgErrore: String; var CodErrore: Integer): Boolean;
 function RefreshToken(const ApiKey: String; var Token: String;
                       var MsgErrore: String; var CodErrore: Integer): Boolean;
-function ModificaPassword(const ApiKey,Title,UserOMail,Token: String;
+function ModificaPassword(const ApiKey,Title,UserOMail: String;
                           var MsgErrore: String; var CodErrore: Integer;
                           const AHandle: Integer=0; const ACaption: String=''): Boolean;
 function ResetPassword(const ApiKey,UserOMail: String;
@@ -971,7 +971,7 @@ begin
   end;
 end;
 
-function ModificaPassword(const ApiKey,Title,UserOMail,Token: String;
+function ModificaPassword(const ApiKey,Title,UserOMail: String;
                           var MsgErrore: String; var CodErrore: Integer;
                           const AHandle: Integer=0; const ACaption: String=''): Boolean;
 var
@@ -983,16 +983,10 @@ begin
     MsgErrore:=MsgNoApiKey;
     Exit;
   end;
-  if Length(Token)=0 then begin
-    CodErrore:=AutErrNoToken;
-    MsgErrore:=MsgNoApiKey;
-    Exit;
-  end;
   FormAutenticazione:=TFormAutenticazione.CreateNew(Application);
   try
     FormAutenticazione.FormCreate(FormAutenticazione);
     FormAutenticazione.FApiKey:=ApiKey;
-    FormAutenticazione.FToken:=Token;
     if Length(Trim(Title))>0 then begin
       FormAutenticazione.Caption:=Title;
       with TRegistry.Create do
