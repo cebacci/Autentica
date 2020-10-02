@@ -7,12 +7,13 @@ const
   AutErrNoApiKey=1;
   AutErrTimeout=2;
   AutErrNoCredentials=3;
-  AutErrUnexcpectedOnConfirm=4;
-  AutErrUnexcpectedOnChangePassword=5;
-  AutErrUnexcpectedOnRequestNewPwd=6;
-  AutErrUnexcpectedOnCallAutentica=7;
+  AutErrUnexpectedOnConfirm=4;
+  AutErrUnexpectedOnChangePassword=5;
+  AutErrUnexpectedOnRequestNewPwd=6;
+  AutErrUnexpectedOnCallAutentica=7;
   AutErrEmptyJSONResponse=8;
   AutErrNoIdUser=9;
+  AutErrNoToken=10;
 
 function ValutazionePassword(const APwd: String): Integer;  //Min=0 Max=5
 function Autenticazione(const ApiKey,Nonce,Title: String;
@@ -21,6 +22,9 @@ function CreaUtente(const ApiKey,Title,IdUser: String;
                     var MsgErrore: String; var CodErrore: Integer): Boolean;
 function RefreshToken(const ApiKey: String; var Token: String;
                       var MsgErrore: String; var CodErrore: Integer): Boolean;
+function ModificaPassword(const ApiKey,Title,UserOMail,Token: String;
+                          var MsgErrore: String; var CodErrore: Integer;
+                          const AHandle: Integer=0; const ACaption: String=''): Boolean;
 function ResetPassword(const ApiKey,UserOMail: String;
                        var MsgErrore: String; var CodErrore: Integer;
                        const AHandle: Integer=0; const ACaption: String=''): Boolean;
@@ -36,6 +40,7 @@ uses Vcl.Forms, Vcl.Controls, Vcl.ExtCtrls, Vcl.Graphics, Vcl.StdCtrls, System.I
 
 const
   MsgNoApiKey='ApiKey non fornita';
+  MsgNoToken='Token non fornito';
   MsgNoIdUser='IdUser non fornito';
   MsgNoCredentials='Operazione annullata. Credenziali non immesse';
   MsgNoUserName='Nome Utente non immesso';
@@ -56,6 +61,7 @@ const
   LblInitialMessage='Autenticazione Utente';
   LblUserName='&Nome Utente:';
   LblPassword='&Password:';
+  LblOldPassword='&Vecchia Password:';
   LblNewPassword='N&uova Password:';
   LblPasswordAgain='&Ripeti Password:';
   LblForgottenPassword='Nome Utente o Password Dimenticata? Clicca';
@@ -64,6 +70,7 @@ const
   LblRequestNewPassword='Password dimenticata';
   LblInitialCreateUser='Creazione Utente';
   LblEmailAddress='&Indirizzo Email:';
+  LblModificaPassword='Modifica Password';
 
   BtnCaptionModPassword='&Modifica Password';
   BtnConfirm='&Conferma';
@@ -90,10 +97,12 @@ type
     LabelPassword: TLabel;
     LabelPassword2: TLabel;
     LabelUserName: TLabel;
+    LabelOldPassword: TLabel;
     Timer: TTimer;
     EditUserName: TEdit;
     EditPassword: TEdit;
     EditPassword2: TEdit;
+    EditOldPassword: TEdit;
     LabelQui: TLabel;
     ImageQualityIndicator: TImage;
     procedure FormCreate(Sender: TObject);
@@ -102,6 +111,7 @@ type
     procedure ButtonAnnullaClick(Sender: TObject);
     procedure ButtonRichiediNPwdClick(Sender: TObject);
     procedure ButtonModificaPasswordClick(Sender: TObject);
+    procedure ButtonModificaPassword2Click(Sender: TObject);
     procedure LabelQuiClick(Sender: TObject);
     procedure EditChange(Sender: TObject);
     procedure EditPasswordChange(Sender: TObject);
@@ -248,7 +258,7 @@ begin
   except
     on E:Exception do begin
       AMsgErrore:='Autentica - Metodo "'+Metodo+'": '+E.Message;
-      ACodErrore:=AutErrUnexcpectedOnCallAutentica;
+      ACodErrore:=AutErrUnexpectedOnCallAutentica;
       Result:=False;
     end;
   end;
@@ -395,7 +405,84 @@ begin
   except
     on E:Exception do begin
       FMsgErrore:=E.Message;
-      FCodErrore:=AutErrUnexcpectedOnConfirm;
+      FCodErrore:=AutErrUnexpectedOnConfirm;
+      FResult:=False;
+      Close;
+    end;
+  end;
+end;
+
+procedure TFormAutenticazione.ButtonModificaPassword2Click(Sender: TObject);
+var
+  JSONRequest,JSONResponse: TJSONObject;
+begin
+  Timer.Enabled:=False;
+  if Length(Trim(EditUserName.Text))=0 then begin
+    MessageBox(Handle,
+               PChar(MsgNoUserName),
+               PChar(Caption),
+               mb_IconError);
+    EditUserName.SetFocus;
+    Exit;
+  end;
+  if Length(Trim(EditPassword.Text))=0 then begin
+    MessageBox(Handle,
+               PChar(MsgNoNewPassword),
+               PChar(Caption),
+               mb_IconError);
+    EditPassword.SetFocus;
+    Exit;
+  end;
+  if Length(Trim(EditPassword2.Text))=0 then begin
+    MessageBox(Handle,
+               PChar(MsgNoRepeatPassword),
+               PChar(Caption),
+               mb_IconError);
+    EditPassword2.SetFocus;
+    Exit;
+  end;
+  if EditPassword.Text<>EditPassword2.Text then begin
+    MessageBox(Handle,
+               PChar(MsgPasswordsDontMatch),
+               PChar(Caption),
+               mb_IconError);
+    EditPassword.SetFocus;
+    Exit;
+  end;
+  if ImageQualityIndicator.Tag<5 then begin
+    if MessageBox(Handle,
+                  PChar(MsgPasswordsNotGood),
+                  PChar(Caption),
+                  mb_IconExclamation+mb_YesNo+mb_DefButton2)=idNo then begin
+      EditPassword.SetFocus;
+      Exit;
+    end;
+  end;
+  try
+    JSONRequest:=TJSONObject.Create;
+    try
+      JSONRequest.AddPair('apiKey',TJSONString.Create(FApiKey));
+      JSONRequest.AddPair('userName',EditUserName.Text);
+      JSONRequest.AddPair('improntaVecchiaPwd',THashSHA2.GetHashString(EditOldPassword.Text));
+      JSONRequest.AddPair('improntaNuovaPwd',THashSHA2.GetHashString(EditPassword.Text));
+      FResult:=ChiamataAutentica('ModificaPassword',JSONRequest,JSONResponse,FToken,FMsgErrore,FCodErrore);
+      if FResult then begin
+        Close;
+      end
+      else begin
+        MessageBox(Handle,
+                   PChar(FMsgErrore),
+                   PChar(Caption),
+                   mb_IconError);
+        EditUserName.SetFocus;
+      end;
+    finally
+      JSONRequest.Free;
+    end;
+  except
+    on E:Exception do begin
+      FMsgErrore:=E.Message;
+      FCodErrore:=AutErrUnexpectedOnChangePassword;
       FResult:=False;
       Close;
     end;
@@ -480,7 +567,7 @@ begin
   except
     on E:Exception do begin
       FMsgErrore:=E.Message;
-      FCodErrore:=AutErrUnexcpectedOnChangePassword;
+      FCodErrore:=AutErrUnexpectedOnChangePassword;
       FResult:=False;
       Close;
     end;
@@ -534,7 +621,7 @@ begin
   except
     on E:Exception do begin
       FMsgErrore:=E.Message;
-      FCodErrore:=AutErrUnexcpectedOnRequestNewPwd;
+      FCodErrore:=AutErrUnexpectedOnRequestNewPwd;
       FResult:=False;
       Close;
     end;
@@ -586,8 +673,12 @@ end;
 
 procedure TFormAutenticazione.FormAutenticazioneShow(Sender: TObject);
 begin
-  if Length(Trim(EditUserName.Text))>0 then
-    EditPassword.SetFocus;
+  if Length(Trim(EditUserName.Text))>0 then begin
+    if EditOldPassword.Visible then
+      EditOldPassword.SetFocus
+    else
+      EditPassword.SetFocus;
+  end;
 end;
 
 procedure TFormAutenticazione.FormCreate(Sender: TObject);
@@ -662,6 +753,30 @@ begin
   EditUserName.TabOrder:=0;
   EditUserName.OnChange:=EditChange;
 
+  LabelOldPassword:=TLabel.Create(Self);
+  LabelOldPassword.Name:='LabelOldPassword';
+  LabelOldPassword.Parent:=Self;
+  LabelOldPassword.Left:=30;
+  LabelOldPassword.Top:=64;
+  LabelOldPassword.Width:=50;
+  LabelOldPassword.Height:=13;
+  LabelOldPassword.Caption:=LblOldPassword;
+  LabelOldPassword.FocusControl:=EditPassword;
+  LabelOldPassword.Visible:=False;
+
+  EditOldPassword:=TEdit.Create(Self);
+  EditOldPassword.Name:='EditOldPassword';
+  EditOldPassword.Text:='';
+  EditOldPassword.Parent:=Self;
+  EditOldPassword.Left:=150;
+  EditOldPassword.Top:=61;
+  EditOldPassword.Width:=241;
+  EditOldPassword.Height:=21;
+  EditOldPassword.TabOrder:=1;
+  EditOldPassword.PasswordChar:='*';
+  EditOldPassword.OnChange:=EditChange;
+  EditOldPassword.Visible:=False;
+
   EditPassword:=TEdit.Create(Self);
   EditPassword.Name:='EditPassword';
   EditPassword.Text:='';
@@ -670,7 +785,7 @@ begin
   EditPassword.Top:=61;
   EditPassword.Width:=241;
   EditPassword.Height:=21;
-  EditPassword.TabOrder:=1;
+  EditPassword.TabOrder:=2;
   EditPassword.PasswordChar:='*';
   EditPassword.OnChange:=EditChange;
 
@@ -693,7 +808,7 @@ begin
   EditPassword2.Top:=88;
   EditPassword2.Width:=241;
   EditPassword2.Height:=21;
-  EditPassword2.TabOrder:=2;
+  EditPassword2.TabOrder:=3;
   EditPassword2.PasswordChar:='*';
   EditPassword2.OnChange:=EditChange;
   EditPassword2.Visible:=False;
@@ -720,7 +835,7 @@ begin
   ButtonConferma.Height:=25;
   ButtonConferma.Caption:=BtnConfirm;
   ButtonConferma.Default:=True;
-  ButtonConferma.TabOrder:=3;
+  ButtonConferma.TabOrder:=4;
   ButtonConferma.OnClick:=ButtonConfermaClick;
 
   ButtonAnnulla:=TButton.Create(Self);
@@ -732,7 +847,7 @@ begin
   ButtonAnnulla.Height:=25;
   ButtonAnnulla.Cancel:=True;
   ButtonAnnulla.Caption:=BtnCancel;
-  ButtonAnnulla.TabOrder:=4;
+  ButtonAnnulla.TabOrder:=5;
   ButtonAnnulla.OnClick:=ButtonAnnullaClick;
 
   Timer:=TTimer.Create(Self);
@@ -850,9 +965,86 @@ begin
   except
     on E:Exception do begin
       MsgErrore:=E.Message;
-      CodErrore:=AutErrUnexcpectedOnConfirm;
+      CodErrore:=AutErrUnexpectedOnConfirm;
       Result:=False;
     end;
+  end;
+end;
+
+function ModificaPassword(const ApiKey,Title,UserOMail,Token: String;
+                          var MsgErrore: String; var CodErrore: Integer;
+                          const AHandle: Integer=0; const ACaption: String=''): Boolean;
+var
+  FormAutenticazione: TFormAutenticazione;
+begin
+  Result:=False;
+  if Length(ApiKey)=0 then begin
+    CodErrore:=AutErrNoApiKey;
+    MsgErrore:=MsgNoApiKey;
+    Exit;
+  end;
+  if Length(Token)=0 then begin
+    CodErrore:=AutErrNoToken;
+    MsgErrore:=MsgNoApiKey;
+    Exit;
+  end;
+  FormAutenticazione:=TFormAutenticazione.CreateNew(Application);
+  try
+    FormAutenticazione.FormCreate(FormAutenticazione);
+    FormAutenticazione.FApiKey:=ApiKey;
+    FormAutenticazione.FToken:=Token;
+    if Length(Trim(Title))>0 then begin
+      FormAutenticazione.Caption:=Title;
+      with TRegistry.Create do
+        try
+          if OpenKeyReadOnly('SOFTWARE\Generazione Informatica\Autentica') then begin
+            FormAutenticazione.EditUserName.Text:=ReadString(Title);
+            CloseKey;
+          end;
+        finally
+          Free;
+        end;
+    end;
+    FormAutenticazione.Height:=250;
+    FormAutenticazione.LabelMsg.Caption:=LblModificaPassword;
+    FormAutenticazione.LabelOldPassword.Visible:=True;
+    FormAutenticazione.LabelPassword.Top:=91;
+    FormAutenticazione.LabelPassword.Caption:=LblNewPassword;
+    FormAutenticazione.LabelPassword2.Visible:=True;
+    FormAutenticazione.LabelPassword2.Top:=118;
+    FormAutenticazione.EditPassword2.Visible:=True;
+    FormAutenticazione.LabelPasswordDimenticata.Visible:=False;
+    FormAutenticazione.LabelQui.Visible:=False;
+    FormAutenticazione.ButtonConferma.Top:=155;
+    FormAutenticazione.ButtonConferma.Caption:=BtnCaptionModPassword;
+    FormAutenticazione.ButtonConferma.Width:=100;
+    FormAutenticazione.ButtonConferma.OnClick:=FormAutenticazione.ButtonModificaPassword2Click;
+    FormAutenticazione.ButtonAnnulla.Top:=155;
+    FormAutenticazione.EditOldPassword.Visible:=True;
+    FormAutenticazione.EditPassword.Top:=88;
+    FormAutenticazione.EditPassword.Text:='';
+    FormAutenticazione.EditPassword.OnChange:=FormAutenticazione.EditPasswordChange;
+    FormAutenticazione.EditPassword2.Top:=115;
+    FormAutenticazione.EditPassword2.Text:='';
+    FormAutenticazione.ImageQualityIndicator.Top:=84;
+    FormAutenticazione.ShowModal;
+    Result:=FormAutenticazione.FResult;
+    MsgErrore:=FormAutenticazione.FMsgErrore;
+    CodErrore:=FormAutenticazione.FCodErrore;
+    if (Length(Trim(Title))>0) and (CodErrore=AutNoError) then begin
+      FormAutenticazione.Caption:=Title;
+      with TRegistry.Create do
+        try
+          if OpenKey('SOFTWARE\Generazione Informatica\Autentica',True) then begin
+            WriteString(Title,FormAutenticazione.EditUserName.Text);
+            CloseKey;
+          end;
+        finally
+          Free;
+        end;
+    end;
+  finally
+    FormAutenticazione.Free;
   end;
 end;
 
@@ -891,7 +1083,7 @@ begin
   except
     on E:Exception do begin
       MsgErrore:=E.Message;
-      CodErrore:=AutErrUnexcpectedOnConfirm;
+      CodErrore:=AutErrUnexpectedOnConfirm;
       Result:=False;
     end;
   end;
@@ -934,7 +1126,7 @@ begin
   except
     on E:Exception do begin
       MsgErrore:=E.Message;
-      CodErrore:=AutErrUnexcpectedOnConfirm;
+      CodErrore:=AutErrUnexpectedOnConfirm;
       Result:=False;
     end;
   end;
@@ -1070,7 +1262,7 @@ begin
   except
     on E:Exception do begin
       FMsgErrore:=E.Message;
-      FCodErrore:=AutErrUnexcpectedOnConfirm;
+      FCodErrore:=AutErrUnexpectedOnConfirm;
       FResult:=False;
       Close;
     end;
