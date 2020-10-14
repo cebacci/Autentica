@@ -50,7 +50,7 @@ const
   MsgNoNewPassword='Immettere il campo Nuova Password';
   MsgNoRepeatPassword='Immettere il campo Ripeti Password';
   MsgPasswordsDontMatch='Le Password immesse non corrispondono. Riprovare.';
-  MsgPasswordsNotGood='La Password immessa non rispetta i requisiti minimi. Continuare?.';
+  MsgPasswordsNotGood='La Password immessa non rispetta i requisiti minimi. Continuare?';
   MsgNoUserNameEmail='Immettere il campo Nome Utente o Email';
   MsgNewPasswordSent='Password temporanea inviata alla casella email memorizzata';
   MsgNewUserCreated='Nuovo utente creato e email inviata';
@@ -272,17 +272,17 @@ var
   X1,X2,X3,X4: Integer;
   Y1,Y2,Y3,Y4: Integer;
 begin
-  X1:=Center.X - Radius;
-  Y1:=Center.Y - Radius;
-  X2:=Center.X + Radius;
-  Y2:=Center.Y + Radius;
+  X1:=Center.X-Radius;
+  Y1:=Center.Y-Radius;
+  X2:=Center.X+Radius;
+  Y2:=Center.Y+Radius;
   {negative signs on "Y" values to correct for "flip" from normal math
   defintion for "Y" dimension}
-  X3:=Center.X + Round(Radius * Cos(DegToRad(Offset + StartDegrees)));
-  Y3:=Center.y - Round(Radius * Sin(DegToRad(Offset + StartDegrees)));
-  X4:=Center.X + Round(Radius * Cos(DegToRad(Offset + StopDegrees)));
-  Y4:=Center.y - Round(Radius * Sin(DegToRad(Offset + StopDegrees)));
-  Canvas.Pie(X1, Y1, X2, Y2, X3, Y3, X4, Y4);
+  X3:=Center.X+Round(Radius*Cos(DegToRad(Offset+StartDegrees)));
+  Y3:=Center.y-Round(Radius*Sin(DegToRad(Offset+StartDegrees)));
+  X4:=Center.X+Round(Radius*Cos(DegToRad(Offset+StopDegrees)));
+  Y4:=Center.y-Round(Radius*Sin(DegToRad(Offset+StopDegrees)));
+  Canvas.Pie(X1,Y1,X2,Y2,X3,Y3,X4,Y4);
 end;
 
 function WordCount(S,Sep: String): Integer;
@@ -900,7 +900,6 @@ begin
     MsgErrore:=FormAutenticazione.FMsgErrore;
     CodErrore:=FormAutenticazione.FCodErrore;
     if (Length(Trim(Title))>0) and (CodErrore=AutNoError) then begin
-      FormAutenticazione.Caption:=Title;
       with TRegistry.Create do
         try
           if OpenKey('SOFTWARE\Generazione Informatica\Autentica',True) then begin
@@ -1026,7 +1025,6 @@ begin
     MsgErrore:=FormAutenticazione.FMsgErrore;
     CodErrore:=FormAutenticazione.FCodErrore;
     if (Length(Trim(Title))>0) and (CodErrore=AutNoError) then begin
-      FormAutenticazione.Caption:=Title;
       with TRegistry.Create do
         try
           if OpenKey('SOFTWARE\Generazione Informatica\Autentica',True) then begin
