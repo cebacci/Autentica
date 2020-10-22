@@ -378,7 +378,8 @@ begin
         Exit;
       end;
       if JSONResponse.Parse(BytesOf(TNetEncoding.Base64.Decode(ExtractWord(2,FToken,'.'))),0)>0 then
-        FIDUser:=JSONResponse.GetValue<String>('ID_USER');
+        if not JSONResponse.TryGetValue('ID_USER',FIDUser) then
+          JSONResponse.TryGetValue('sub',FIDUser);
       if (FCodErrore=312) or
          (FCodErrore=313) then begin //Pwd scaduta
         FOldPwd:=EditPassword.Text;
