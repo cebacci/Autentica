@@ -26,6 +26,8 @@ Dopodiché è sufficiente includere il custom-tag "autentica-login", avendo cura
 | logoSrc | link al logo dell'applicazione (non indicare questo parametro per visualizzare il logo standard di Autentica) | No |
 | nonce | stringa generata randomicamente | No |
 
+Il parametro “nonce”, che si consiglia generato random e sempre diverso, deve essere contenuto nel token ricevuto in modo da sventare attacchi di tipo “replay-attack” e “a dizionario”.
+
 Per ricevere la risposta della chiamata di autenticazione è necessario aggiungere un evento di tipo "onLoginSuccess" al custom-tag; il token è contenuto nel parametro event.detail.token.
 
 Per ricevere eventuali errori della chiamata di autenticazione è necessario aggiungere un evento di tipo "onError" al custom-tag; il codice di errore e la descrizione sono contenuti rispettivamente in event.detail.error ed event.detail.description.
