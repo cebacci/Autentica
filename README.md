@@ -51,3 +51,11 @@ end;
 Il token risultante sarà disponibile nella variabile Token. Per vostra comodità la funzione estrae anche il valore di IdUser dal token e lo inserisce nella variabile corrispondente. ATTENZIONE! Si consiglia di effettuare sempre una validazione del token ricevuto con la propria chiave prima di utilizzarne il contenuto.
 
 Trovate l’esempio completo in <a href="https://github.com/cebacci/Autentica/tree/main/Delphi">Delphi</a>
+
+## Altri Esempi
+Trovate in questa repository anche degli esempi in:
+* <a href="https://github.com/cebacci/Autentica/tree/main/Angular">Angular</a>
+* <a href="https://github.com/cebacci/Autentica/tree/main/csharp-dotnet">C# / .net</a>
+* <a href="https://github.com/cebacci/Autentica/tree/main/js_ajax">JS / Ajax</a>
+* <a href="https://github.com/cebacci/Autentica/tree/main/php">Php</a>
+* <a href="https://github.com/cebacci/Autentica/tree/main/python">Python</a>
