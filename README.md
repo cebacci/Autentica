@@ -1,6 +1,6 @@
 # Autentica
 
-Al fine di facilitare la comprensione e l’utilizzo delle chiamate ad Autentica, abbiamo sviluppato due componenti pronti all’uso, che permettono al programmatore di inglobare nel proprio applicativo le chiamate ad Autentica in modo semplice e sintetico. I sorgenti dei due componenti sono a vostra disposizione e possono essere analizzati e riutilizzati liberamente (licenza LGPL) oppure possono essere consultati come esempio delle chiamate ad Autentica.
+Al fine di facilitare la comprensione e l’utilizzo delle chiamate ad Autentica, abbiamo sviluppato dei componenti pronti all’uso, che permettono al programmatore di inglobare nel proprio applicativo le chiamate ad Autentica in modo semplice e sintetico. I sorgenti dei componenti sono a vostra disposizione e possono essere analizzati e riutilizzati liberamente (licenza LGPL) oppure possono essere consultati come esempio delle chiamate ad Autentica.
 
 ## Passwordless Experience
 Una delle grandi novità di Autentica è quella di consentire agli utenti di effettuare un accesso senza l'uso della password, utilizzando la nostra app, disponibile sia per Android che per iOS, per il cui download sono disponibili i QR Code con le funzioni "QRCode/Android" e "QRCode/iOS".
