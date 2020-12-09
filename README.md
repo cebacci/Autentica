@@ -3,19 +3,13 @@
 Al fine di facilitare la comprensione e l’utilizzo delle chiamate ad Autentica, abbiamo sviluppato dei componenti pronti all’uso, che permettono al programmatore di inglobare nel proprio applicativo le chiamate ad Autentica in modo semplice e sintetico. I sorgenti dei componenti sono a vostra disposizione e possono essere analizzati e riutilizzati liberamente (licenza LGPL) oppure possono essere consultati come esempio delle chiamate ad Autentica.
 
 ## Passwordless Experience
-Una delle grandi novità di Autentica è quella di consentire agli utenti di effettuare un accesso senza l'uso della password, utilizzando la nostra app, disponibile sia per Android che per iOS, per il cui download sono disponibili i QR Code con le funzioni "QRCode/Android" e "QRCode/iOS".
+Una delle grandi novità di Autentica è quella di consentire agli utenti di effettuare un accesso senza l'uso della password, utilizzando la nostra app, disponibile sia per <a href="https://play.google.com/store/apps/details?id=com.geninfo.autenticapasswordless">Android</a> che per <a href="https://apps.apple.com/it/app/autentica-passwordless/id1541663793">iOS</a>.
 
 L'utente deve, dopo aver scaricato la app, registrare il progetto e il suo nome utente, inquadrando il QR Code corrispondente che può essere scaricato con la funzione "QRCode/api-key/username". La app richiederà la password all'utente, per verificarne l'identità, e poi l'impronta biometrica (impronta digitale o face-id) per associare l'identità in modo sicuro.
 
 Per ottenere il token mediante utilizzo della app, si dovrà passare il nome utente alla funzione "AutenticazioneBio" che effettuerà automaticamente la connessione con la app dell'utente (avvisata con notifica push) e lo scambio delle credenziali in tutta sicurezza (dopo riconoscimento biometrico).
 
-La cosa più semplice da fare per iniziare, è utilizzare i nostri widget, di cui parliamo più avanti.
-
-Per le funzioni “Autenticazione” e “AutenticazioneBio” è richiesto in input fra gli altri il parametro “nonce”, che si consiglia generato random e sempre diverso. Consigliamo di verificare se nel token ricevuto è contenuto il “nonce” fornito, in modo da sventare attacchi di tipo “replay-attack” e “a dizionario”.
-
-Il token ricevuto dalle funzioni “Autenticazione” e “AutenticazioneBio” dovrà essere passato in input alle altre funzioni di Autentica e potrà essere usato nella comunicazione client-server degli applicativi.
-
-In Autentica sono presenti tante altre funzioni che invitiamo a scoprire consultando la presente guida.
+La cosa più semplice da fare per iniziare, è utilizzare i nostri widget.
 
 ## Login Widget (HTML / javascript)
 Permette di includere in una pagina html tutte le funzionalità di login, anche con funzioni biometriche e supporto alla registrazione dell'utente, cambio password e password dimenticata all’interno di un contenitore. Per poterlo utilizzare, è necessario includere nella pagina html lo script necessario con la seguente istruzione:
