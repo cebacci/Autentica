@@ -8,6 +8,8 @@ https://github.com/andrea-magni/FMXER
 
 Grazie a Daniele Spinetti e Andrea Magni per il prezioso contributo.
 
+-----------------------------
+
 Here you can find examples to invoke Autentica in apps written in Delphi and Firemonkey, responsive and pleasant to use.
 
 To compile and use these examples, you need to download the following packages:
