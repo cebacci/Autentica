@@ -1,0 +1,110 @@
+object FramePwdScaduta: TFramePwdScaduta
+  Size.Width = 620.000000000000000000
+  Size.Height = 240.000000000000000000
+  Size.PlatformDefault = False
+  object LabelPassword: TLabel
+    Position.X = 168.000000000000000000
+    Position.Y = 56.000000000000000000
+    Text = 'Nuova Password:'
+    TabOrder = 5
+  end
+  object EditPassword: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Password = True
+    Position.X = 168.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 265.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    OnChangeTracking = EditPasswordChangeTracking
+  end
+  object ButtonConferma: TButton
+    Default = True
+    Position.X = 168.000000000000000000
+    Position.Y = 184.000000000000000000
+    TabOrder = 2
+    Text = '&Conferma'
+    OnClick = ButtonConfermaClick
+  end
+  object ButtonAnnulla: TButton
+    Cancel = True
+    Position.X = 352.000000000000000000
+    Position.Y = 184.000000000000000000
+    TabOrder = 3
+    Text = '&Annulla'
+    OnClick = ButtonAnnullaClick
+  end
+  object LabelMessaggio: TLabel
+    Align = Top
+    Size.Width = 620.000000000000000000
+    Size.Height = 42.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 
+      'La password '#232' scaduta. Immetterne una nuova, rispettando le norm' +
+      'e.'
+    TabOrder = 4
+  end
+  object LabelRipetiPassword: TLabel
+    Position.X = 168.000000000000000000
+    Position.Y = 112.000000000000000000
+    Text = 'Ripeti Password:'
+    TabOrder = 6
+  end
+  object EditRipetiPassword: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Password = True
+    Position.X = 168.000000000000000000
+    Position.Y = 136.000000000000000000
+    Size.Width = 265.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Rectangle1: TRectangle
+    Fill.Color = claBrown
+    Position.X = 440.000000000000000000
+    Position.Y = 84.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object Rectangle2: TRectangle
+    Fill.Color = claChocolate
+    Position.X = 457.000000000000000000
+    Position.Y = 84.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object Rectangle3: TRectangle
+    Fill.Color = claDarkgoldenrod
+    Position.X = 474.000000000000000000
+    Position.Y = 84.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object Rectangle4: TRectangle
+    Fill.Color = claOlive
+    Position.X = 491.000000000000000000
+    Position.Y = 84.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object Rectangle5: TRectangle
+    Fill.Color = claLime
+    Position.X = 508.000000000000000000
+    Position.Y = 84.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+end

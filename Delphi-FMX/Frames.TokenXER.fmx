@@ -1,0 +1,59 @@
+object FrameToken: TFrameToken
+  Size.Width = 320.000000000000000000
+  Size.Height = 240.000000000000000000
+  Size.PlatformDefault = False
+  object PopupMenu: TPopupMenu
+    Left = 140
+    Top = 120
+    object CopiatokenrisultantesuAppunti1: TMenuItem
+      Text = 'Copia token risultante su Appunti'
+      OnClick = CopiatokenrisultantesuAppunti1Click
+    end
+  end
+  object Layout: TLayout
+    Align = Client
+    Size.Width = 320.000000000000000000
+    Size.Height = 240.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object LabelTitle: TLabel
+      Align = Top
+      Size.Width = 320.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
+      Text = 'Token'
+      TabOrder = 0
+    end
+    object MemoToken: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      ReadOnly = True
+      Align = Client
+      PopupMenu = PopupMenu
+      Size.Width = 320.000000000000000000
+      Size.Height = 191.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Viewport.Width = 320.000000000000000000
+      Viewport.Height = 191.000000000000000000
+    end
+    object PanelBottom: TPanel
+      Align = Bottom
+      Position.Y = 208.000000000000000000
+      Size.Width = 320.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object ButtonCopia: TButton
+        Align = Center
+        Size.Width = 120.000000000000000000
+        Size.Height = 21.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = '&Copia negli Appunti'
+        OnClick = ButtonCopiaClick
+      end
+    end
+  end
+end

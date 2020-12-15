@@ -1,0 +1,140 @@
+object FrameNuovoUtente: TFrameNuovoUtente
+  Size.Width = 620.000000000000000000
+  Size.Height = 276.000000000000000000
+  Size.PlatformDefault = False
+  object LabelPassword: TLabel
+    Position.X = 168.000000000000000000
+    Position.Y = 96.000000000000000000
+    Text = 'Nuova Password:'
+    TabOrder = 9
+  end
+  object EditPassword: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    Password = True
+    Position.X = 168.000000000000000000
+    Position.Y = 120.000000000000000000
+    Size.Width = 265.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    OnChangeTracking = EditPasswordChangeTracking
+  end
+  object ButtonConferma: TButton
+    Default = True
+    Position.X = 168.000000000000000000
+    Position.Y = 224.000000000000000000
+    TabOrder = 4
+    Text = '&Conferma'
+    OnClick = ButtonConfermaClick
+  end
+  object ButtonAnnulla: TButton
+    Cancel = True
+    Position.X = 352.000000000000000000
+    Position.Y = 224.000000000000000000
+    TabOrder = 5
+    Text = '&Annulla'
+    OnClick = ButtonAnnullaClick
+  end
+  object LabelMessaggio: TLabel
+    Align = Top
+    Size.Width = 620.000000000000000000
+    Size.Height = 42.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 
+      'Inserire i dati del nuovo utente (ID_USER in realt'#224' dovrebbe arr' +
+      'ivare dalla vostra applicazione)'
+    TabOrder = 8
+  end
+  object LabelRipetiPassword: TLabel
+    Position.X = 168.000000000000000000
+    Position.Y = 152.000000000000000000
+    Text = 'Ripeti Password:'
+    TabOrder = 10
+  end
+  object EditRipetiPassword: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 3
+    Password = True
+    Position.X = 168.000000000000000000
+    Position.Y = 176.000000000000000000
+    Size.Width = 265.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object LabelNomeUtente: TLabel
+    Position.X = 168.000000000000000000
+    Position.Y = 40.000000000000000000
+    Text = 'Nome Utente:'
+    TabOrder = 7
+  end
+  object EditNomeUtente: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Position.X = 168.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 265.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object LabelID_User: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 40.000000000000000000
+    Text = 'ID User:'
+    TabOrder = 6
+  end
+  object EditID_User: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Position.X = 24.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Rectangle1: TRectangle
+    Fill.Color = claBrown
+    Position.X = 440.000000000000000000
+    Position.Y = 126.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object Rectangle2: TRectangle
+    Fill.Color = claChocolate
+    Position.X = 457.000000000000000000
+    Position.Y = 126.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object Rectangle3: TRectangle
+    Fill.Color = claDarkgoldenrod
+    Position.X = 474.000000000000000000
+    Position.Y = 126.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object Rectangle4: TRectangle
+    Fill.Color = claOlive
+    Position.X = 491.000000000000000000
+    Position.Y = 126.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+  object Rectangle5: TRectangle
+    Fill.Color = claLime
+    Position.X = 508.000000000000000000
+    Position.Y = 126.000000000000000000
+    Size.Width = 16.000000000000000000
+    Size.Height = 12.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+  end
+end

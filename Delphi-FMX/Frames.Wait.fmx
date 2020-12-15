@@ -1,0 +1,40 @@
+object FrameWait: TFrameWait
+  Align = Contents
+  Size.Width = 254.000000000000000000
+  Size.Height = 351.000000000000000000
+  Size.PlatformDefault = False
+  object BackgroundRectangle: TRectangle
+    Align = Contents
+    Fill.Color = claBlack
+    Opacity = 0.660000026226043700
+    Size.Width = 254.000000000000000000
+    Size.Height = 351.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+  end
+  object ContentsLayout: TLayout
+    Align = Contents
+    Size.Width = 254.000000000000000000
+    Size.Height = 351.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object MessageLabel: TLabel
+      Anchors = [akLeft, akRight, akBottom]
+      StyledSettings = [Family, Style]
+      Position.X = 10.000000000000000000
+      Position.Y = 271.000000000000000000
+      Size.Width = 234.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.FontColor = claAzure
+      TextSettings.HorzAlign = Center
+      TextSettings.WordWrap = False
+      Text = 'Operazione in corso...'
+    end
+    object AniIndicator1: TAniIndicator
+      Align = Center
+      Enabled = True
+    end
+  end
+end

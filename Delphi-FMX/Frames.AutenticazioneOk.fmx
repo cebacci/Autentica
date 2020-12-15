@@ -1,0 +1,60 @@
+object FrameAutenticazioneOk: TFrameAutenticazioneOk
+  Size.Width = 617.000000000000000000
+  Size.Height = 263.000000000000000000
+  Size.PlatformDefault = False
+  object LabelMessaggio: TLabel
+    Align = Top
+    Size.Width = 617.000000000000000000
+    Size.Height = 42.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Compilmenti! Autenticazione effettuata. Ecco il tuo token:'
+    TabOrder = 0
+  end
+  object MemoToken: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    PopupMenu = PopupMenu
+    Position.X = 152.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 313.000000000000000000
+    Size.Height = 153.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    OnKeyDown = MemoTokenKeyDown
+    Viewport.Width = 313.000000000000000000
+    Viewport.Height = 153.000000000000000000
+  end
+  object ButtonTorna: TButton
+    Anchors = [akLeft, akBottom]
+    Default = True
+    Position.X = 256.000000000000000000
+    Position.Y = 232.000000000000000000
+    Size.Width = 104.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = '&Torna all'#39'inizio'
+    OnClick = ButtonTornaClick
+  end
+  object ButtonCopia: TButton
+    Anchors = [akRight, akBottom]
+    Position.X = 344.000000000000000000
+    Position.Y = 200.000000000000000000
+    Size.Width = 120.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = '&Copia negli Appunti'
+    OnClick = ButtonCopiaClick
+  end
+  object PopupMenu: TPopupMenu
+    Left = 296
+    Top = 120
+    object CopiatokenrisultantesuAppunti1: TMenuItem
+      Text = 'Copia token risultante su Appunti'
+      OnClick = CopiatokenrisultantesuAppunti1Click
+    end
+  end
+end

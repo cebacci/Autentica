@@ -1,0 +1,82 @@
+object FrameStandardLogin: TFrameStandardLogin
+  Size.Width = 617.000000000000000000
+  Size.Height = 240.000000000000000000
+  Size.PlatformDefault = False
+  object LabelNomeUtente: TLabel
+    Position.X = 168.000000000000000000
+    Position.Y = 16.000000000000000000
+    Text = 'Nome Utente:'
+    TabOrder = 0
+  end
+  object EditNomeUtente: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Position.X = 168.000000000000000000
+    Position.Y = 40.000000000000000000
+    Size.Width = 265.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object LabelPassword: TLabel
+    Position.X = 168.000000000000000000
+    Position.Y = 80.000000000000000000
+    Text = 'Password:'
+    TabOrder = 2
+  end
+  object EditPassword: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 3
+    Password = True
+    Position.X = 168.000000000000000000
+    Position.Y = 104.000000000000000000
+    Size.Width = 265.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object ButtonConferma: TButton
+    Default = True
+    Position.X = 168.000000000000000000
+    Position.Y = 152.000000000000000000
+    TabOrder = 4
+    Text = '&Conferma'
+    OnClick = ButtonConfermaClick
+  end
+  object ButtonAnnulla: TButton
+    Cancel = True
+    Position.X = 352.000000000000000000
+    Position.Y = 152.000000000000000000
+    TabOrder = 5
+    Text = '&Annulla'
+    OnClick = ButtonAnnullaClick
+  end
+  object ButtonPasswordLess: TButton
+    Position.X = 168.000000000000000000
+    Position.Y = 200.000000000000000000
+    Size.Width = 265.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    Text = 'Sperimenta l'#39'esperienza &Senza Password'
+    OnClick = ButtonPasswordLessClick
+  end
+  object ButtonPwdDimenticata: TButton
+    Position.X = 442.000000000000000000
+    Position.Y = 105.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    Text = 'Password &Dimenticata'
+    OnClick = ButtonPwdDimenticataClick
+  end
+  object ButtonNuovUtente: TButton
+    Position.X = 442.000000000000000000
+    Position.Y = 41.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    Text = '&Nuovo utente'
+    OnClick = ButtonNuovUtenteClick
+  end
+end

@@ -1,0 +1,78 @@
+object FrameDownloadApp: TFrameDownloadApp
+  Size.Width = 620.000000000000000000
+  Size.Height = 307.000000000000000000
+  Size.PlatformDefault = False
+  object LabelMessaggio: TLabel
+    Align = Top
+    Size.Width = 620.000000000000000000
+    Size.Height = 42.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 
+      'I prerequisiti sono di possedere uno smartphone di ultima genera' +
+      'zione, di aver predisposto su di esso l'#39'utilizzo della propria i' +
+      'mpronta biometrica ed aver scaricato la nostra App di Autenticaz' +
+      'ione Senza Password.'
+    TabOrder = 4
+  end
+  object ImageViewerQRCodeAndroid: TImageViewer
+    Position.X = 85.000000000000000000
+    Position.Y = 63.000000000000000000
+    Scale.X = 2.000000000000000000
+    Scale.Y = 2.000000000000000000
+    Size.Width = 84.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    Viewport.Width = 80.000000000000000000
+    Viewport.Height = 61.000000000000000000
+  end
+  object ImageViewerQRCodeIos: TImageViewer
+    Position.X = 357.000000000000000000
+    Position.Y = 63.000000000000000000
+    Scale.X = 2.000000000000000000
+    Scale.Y = 2.000000000000000000
+    Size.Width = 84.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Viewport.Width = 80.000000000000000000
+    Viewport.Height = 61.000000000000000000
+  end
+  object LabelAndroid: TLabel
+    Position.X = 112.000000000000000000
+    Position.Y = 199.000000000000000000
+    Size.Width = 113.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Punta qui per scaricare la App per Android'
+    TabOrder = 8
+  end
+  object LabelIos: TLabel
+    Position.X = 384.000000000000000000
+    Position.Y = 199.000000000000000000
+    Size.Width = 113.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Punta qui per scaricare la App per iOS'
+    TabOrder = 7
+  end
+  object ButtonFatto: TButton
+    Default = True
+    Position.X = 216.000000000000000000
+    Position.Y = 263.000000000000000000
+    TabOrder = 9
+    Text = '&Fatto'
+    OnClick = ButtonFattoClick
+  end
+  object ButtonAnnulla: TButton
+    Cancel = True
+    Position.X = 320.000000000000000000
+    Position.Y = 263.000000000000000000
+    TabOrder = 3
+    Text = '&Annulla'
+    OnClick = ButtonAnnullaClick
+  end
+end

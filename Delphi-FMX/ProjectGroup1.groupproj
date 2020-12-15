@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{672E0190-D122-404D-A83C-2858A4935F61}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Autenticazione.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Autenticazione_FMXER.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Autenticazione">
+        <MSBuild Projects="Autenticazione.dproj"/>
+    </Target>
+    <Target Name="Autenticazione:Clean">
+        <MSBuild Projects="Autenticazione.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Autenticazione:Make">
+        <MSBuild Projects="Autenticazione.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Autenticazione_FMXER">
+        <MSBuild Projects="Autenticazione_FMXER.dproj"/>
+    </Target>
+    <Target Name="Autenticazione_FMXER:Clean">
+        <MSBuild Projects="Autenticazione_FMXER.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Autenticazione_FMXER:Make">
+        <MSBuild Projects="Autenticazione_FMXER.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Autenticazione;Autenticazione_FMXER"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Autenticazione:Clean;Autenticazione_FMXER:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Autenticazione:Make;Autenticazione_FMXER:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

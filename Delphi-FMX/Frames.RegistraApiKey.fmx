@@ -1,0 +1,74 @@
+object FrameRegistraApiKey: TFrameRegistraApiKey
+  Size.Width = 620.000000000000000000
+  Size.Height = 287.000000000000000000
+  Size.PlatformDefault = False
+  object LabelMessaggio: TLabel
+    Align = Top
+    Size.Width = 620.000000000000000000
+    Size.Height = 42.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 
+      'Aggiungere l'#39'applicazione nella App premendo su "+" e poi puntar' +
+      'e il QRCode sottostante'
+    TabOrder = 4
+  end
+  object ImageViewerQRCodeApiKey: TImageViewer
+    Position.X = 365.000000000000000000
+    Position.Y = 48.000000000000000000
+    Scale.X = 2.000000000000000000
+    Scale.Y = 2.000000000000000000
+    Size.Width = 84.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    Viewport.Width = 80.000000000000000000
+    Viewport.Height = 61.000000000000000000
+  end
+  object LabelUtente: TLabel
+    Position.X = 344.000000000000000000
+    Position.Y = 164.000000000000000000
+    Size.Width = 217.000000000000000000
+    Size.Height = 73.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Punta qui per registrare nella App l'#39'utente indicato'
+    TabOrder = 7
+  end
+  object ButtonFatto: TButton
+    Default = True
+    Position.X = 360.000000000000000000
+    Position.Y = 234.000000000000000000
+    TabOrder = 9
+    Text = '&Fatto'
+    OnClick = ButtonFattoClick
+  end
+  object ButtonAnnulla: TButton
+    Cancel = True
+    Position.X = 464.000000000000000000
+    Position.Y = 234.000000000000000000
+    TabOrder = 3
+    Text = '&Annulla'
+    OnClick = ButtonAnnullaClick
+  end
+  object ImageViewerLogo: TImageViewer
+    Position.X = 16.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 280.000000000000000000
+    Size.Height = 180.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Viewport.Width = 276.000000000000000000
+    Viewport.Height = 176.000000000000000000
+  end
+  object LabelProgetto: TLabel
+    Position.X = 40.000000000000000000
+    Position.Y = 224.000000000000000000
+    Size.Width = 225.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Progetto'
+    TabOrder = 8
+  end
+end
