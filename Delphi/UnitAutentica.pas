@@ -1113,7 +1113,7 @@ begin
           Exit;
         end;
         MessageBox(Handle,
-                   PChar(MsgCredenzialiErrate),
+                   PChar(FMsgErrore),
                    PChar(Caption),
                    mb_IconError);
         Inc(FTentativi);
