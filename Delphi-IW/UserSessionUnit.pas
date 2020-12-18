@@ -66,8 +66,7 @@ type
                                const Parametri: TJSONObject;
                                var JSONResponse: TJSONObject; var AMsgErrore: String;
                                var ACodErrore: Integer): Boolean;
-    function Autenticazione(const Nonce,IdDispositivo: String;
-                            out ErrorMessage: String;
+    function Autenticazione(out ErrorMessage: String;
                             out ErrorCode: Integer): Boolean;
     function AnnullaAutenticazioneBio(out ErrorMessage: String;
                                       out ErrorCode: Integer): Boolean;
@@ -104,12 +103,19 @@ begin
   end;
 end;
 
-function TIWUserSession.Autenticazione(const Nonce,IdDispositivo: String;
-                                       out ErrorMessage: String;
+function TIWUserSession.Autenticazione(out ErrorMessage: String;
                                        out ErrorCode: Integer): Boolean;
 var
   EndPoint: String;
   Parametri,Risposta: TJSONObject;
+  function GetNonce: String;
+  var
+    aGUID: TGUID;
+  begin
+    CreateGUID(aGUID);
+    Result:=GUIDToString(aGUID);
+    Result:=Copy(Result,2,Length(Result)-2);
+  end;
 begin
   Parametri:=TJSONObject.Create;
   Risposta:=TJSONObject.Create;
@@ -122,8 +128,7 @@ begin
       EndPoint:='autenticazione';
       Parametri.AddPair('improntaPwd',FPassword);
     end;
-    Parametri.AddPair('nonce',Nonce);
-    Parametri.AddPair('idDispositivo',IdDispositivo);
+    Parametri.AddPair('nonce',GetNonce);
     Parametri.AddPair('User-Agent',WebApplication.Request.UserAgent);
     Result:=ChiamataAutentica(rmPOST,EndPoint,Parametri,Risposta,ErrorMessage,ErrorCode);
     {
