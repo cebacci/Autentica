@@ -91,7 +91,7 @@ begin
     end;
   UserSession.UserName:=IWEditNomeUtente.Text;
   UserSession.Password:=IWEditPassword.Text;
-  if UserSession.Autenticazione('12345','',ErrorMessage,ErrorCode) then begin
+  if UserSession.Autenticazione(ErrorMessage,ErrorCode) then begin
     IWRegionLogonConPassword.Visible:=False;
     IWRegionLogonPasswordless.Visible:=False;
     IWRegionRisultato.Top:=IWRegionLogonConPassword.Top;
