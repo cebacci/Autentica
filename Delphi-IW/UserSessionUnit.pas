@@ -129,15 +129,15 @@ begin
     {
      Struttura della risposta
      "message":"Autenticazione effettuata con successo",
-     "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzUxMiJ9.eyJpc3MiOiJBdXRlbnRpY2EiLCJJRF9VU0VSIjoiNzI3IiwiUk9MRVMiOiJFU0VSQ0laSU8iLCJOT05DRSI6IjEyMzQ1IiwiaWF0IjoxNjA4MTI1NDA5LCJleHAiOjE2MDgyMDgyMDksImp0aSI6IjZDRjlCMjAzLTJBRTUtNDU0NS1COTEzLTYzQ0U3NzdCM0EyOCJ9.ldx0IVW7eXVvXYQoU46IaFGLLaTK3yTR28nTYeYyIImQszy_k-ROMPP8vDQwUwMu309FbmRGXZBwyZgeb4gu5tKXqMDp_qmsiXGzOKLnL-kmnccI0aZhPz4trNqaMnxDmWC9fjZxv9YR-sZ80BgtUDxPPi_MbuRyZXJOaHeeXw0R_yPo1y86SzmeSzAcBd9B7hsNAeRbfvyMjVbEWZvv_OhrMbVRV-xMy62Fg7dbwV14WrNFY3_lHW5Axcc7QmFbV0VPEmHDWGpAcMsXE5BB9RgW_Nuo9oJRkXpYT3u2kfPXGhnENmdHp48JQPxdy-uxgibue0Im2QOZlu1hN_BaiQ",
-     "ID_USER":"727",
+     "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzUxMiJ9.XXX.XXX",
+     "ID_USER":"XXX",
      "Issuer":"Autentica",
-     "ROLES":"ESERCIZIO",
-     "NONCE":"12345",
+     "ROLES":"ADMIN",
+     "NONCE":"XXX",
      "IssuedAt":"2020-12-16T14:30:09.000Z",
      "Expiration":"2020-12-17T13:30:09.000Z",
      "JWTId":"6CF9B203-2AE5-4545-B913-63CE777B3A28",
-     "Claims":{"iss":"Autentica","ID_USER":"727","ROLES":"ESERCIZIO","NONCE":"12345","iat":1608125409,"exp":1608208209,"jti":"6CF9B203-2AE5-4545-B913-63CE777B3A28"}
+     "Claims":{"iss":"Autentica","ID_USER":"XXX","ROLES":"ADMIN","NONCE":"XXX","iat":1608125409,"exp":1608208209,"jti":"6CF9B203-2AE5-4545-B913-63CE777B3A28"}
 
     if Result then begin
       Risposta.TryGetValue<String>('token',FToken);
