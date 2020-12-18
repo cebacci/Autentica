@@ -399,7 +399,7 @@ begin
     end;
   end;
   FPrimaEsecuzione:=True;
-  FApiKey:='565D4ADF-3975-454C-9F63-1755C2C49BAF';  //NienteCode
+  FApiKey:='XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX';  //Personalizza con la tua API-KEY
 end;
 
 procedure TIWUserSession.IWUserSessionBaseDestroy(Sender: TObject);
