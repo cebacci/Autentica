@@ -61,3 +61,5 @@ Trovate in questa repository anche degli esempi in:
 * <a href="https://github.com/cebacci/Autentica/tree/main/js_ajax">JS / Ajax</a>
 * <a href="https://github.com/cebacci/Autentica/tree/main/php">Php</a>
 * <a href="https://github.com/cebacci/Autentica/tree/main/python">Python</a>
+* <a href="https://github.com/cebacci/Autentica/tree/main/Delphi-FMX">Delphi-FMX</a>
+* <a href="https://github.com/cebacci/Autentica/tree/main/Delphi-IW">Delphi-Intraweb</a>
