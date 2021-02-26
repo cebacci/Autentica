@@ -21,7 +21,8 @@ var
 
 function ValutazionePassword(const APwd: String): Integer;  //Min=0 Max=5
 function Autenticazione(const ApiKey,Nonce,Title: String;
-                        var IdUser,Token,MsgErrore: String; var CodErrore: Integer): Boolean;
+                        var IdUser,Token,MsgErrore: String; var CodErrore: Integer;
+                        SubNodeName: String='ID_USER'): Boolean;
 function CreaUtente(const ApiKey,Title,IdUser: String;
                     var MsgErrore: String; var CodErrore: Integer): Boolean;
 function RefreshToken(const ApiKey: String; var Token: String;
@@ -98,6 +99,7 @@ type
   private
     FApiKey: String;
     FNonce: String;
+    FSubNodeName: String;
     FIDUser: String;
     FToken: String;
     FBio,FResult: Boolean;
@@ -424,7 +426,8 @@ begin
 end;
 
 function Autenticazione(const ApiKey,Nonce,Title: String;
-                        var IdUser,Token,MsgErrore: String; var CodErrore: Integer): Boolean;
+                        var IdUser,Token,MsgErrore: String; var CodErrore: Integer;
+                        SubNodeName: String='ID_USER'): Boolean;
 var
   FormAutenticazione: TFormAutenticazione;
 begin
@@ -442,6 +445,7 @@ begin
     FormAutenticazione.FormCreate(FormAutenticazione);
     FormAutenticazione.FApiKey:=ApiKey;
     FormAutenticazione.FNonce:=Nonce;
+    FormAutenticazione.FSubNodeName:=SubNodeName;
     if Length(Trim(Title))>0 then begin
       FormAutenticazione.Caption:=Title;
       with TRegistry.Create do
@@ -1122,8 +1126,9 @@ begin
         Exit;
       end;
       if JSONResponse.Parse(BytesOf(TNetEncoding.Base64.Decode(ExtractWord(2,FToken,'.'))),0)>0 then
-        if not JSONResponse.TryGetValue('ID_USER',FIDUser) then
-          JSONResponse.TryGetValue('sub',FIDUser);
+        if not JSONResponse.TryGetValue(FSubNodeName,FIDUser) then
+          if not JSONResponse.TryGetValue('ID_USER',FIDUser) then
+            JSONResponse.TryGetValue('sub',FIDUser);
       if (FCodErrore=312) or
          (FCodErrore=313) or
          (FCodErrore=1412) or
