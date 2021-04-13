@@ -1,6 +1,17 @@
 # Autentica
 
+Autentica è la piattaforma di gestione delle credenziali in cloud che permette di:
+* Archiviare i dati di accesso dei tuoi utenti in modo semplice e sicuro;
+* Avere la certezza dell’identità del richiedente mediante JWT;
+* Configurare i parametri delle credenziali in maniera articolata;
+* Personalizzare i modelli di e-mail di avviso agli utenti per tutti gli eventi;
+* Aumentare la sicurezza delle tue applicazioni, utilizzando le tecnologie più avanzate;
+* Migliorare l’esperienza d’uso da parte dei tuoi utenti finali, anche grazie alla passwordless experience;
+* Essere in regola con i requisiti del Regolamento Generale Per La Protezione Dei Dati (GDPR);
+
 Al fine di facilitare la comprensione e l’utilizzo delle chiamate ad Autentica, abbiamo sviluppato dei componenti pronti all’uso, che permettono al programmatore di inglobare nel proprio applicativo le chiamate ad Autentica in modo semplice e sintetico. I sorgenti dei componenti sono a vostra disposizione e possono essere analizzati e riutilizzati liberamente (licenza LGPL) oppure possono essere consultati come esempio delle chiamate ad Autentica.
+
+Per iniziare ad utilizzare le funzioni di Autentica, accedi alla versione <a href="https://autenticazionesicura.it/#prezzi">gratuita</a>
 
 ## Passwordless Experience
 Una delle grandi novità di Autentica è quella di consentire agli utenti di effettuare un accesso senza l'uso della password, utilizzando la nostra app, disponibile sia per <a href="https://play.google.com/store/apps/details?id=com.geninfo.autenticapasswordless">Android</a> che per <a href="https://apps.apple.com/it/app/autentica-passwordless/id1541663793">iOS</a>.
